@@ -2,11 +2,13 @@ var button = document.querySelector("#button");
 var isBlue = false;
 
 
-button.eventListener("click",function(){
+button.addEventListener("click",function(){
 	if(isBlue){
-	document.body.style.background = "blue";
+	document.body.style.background = "white";
 }
 else{
-	document.body.style.background = "white";
-	isBlue = true;
-})
+	document.body.style.background = "blue";
+	
+}
+isBlue = !isBlue;
+});
