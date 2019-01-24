@@ -9,6 +9,8 @@ var reset = document.querySelector("#reset");
 var easy = document.querySelector("#easy");
 var hard = document.querySelector("#hard");
 var numberOfSquares =6;
+var modeButtons = document.querySelectorAll(".mode");
+
 
 
 easy.addEventListener("click",function()
@@ -20,6 +22,8 @@ hard.addEventListener("click",function()
 {
 	hardButton();
 });
+
+hard.click();
 
 reset.addEventListener("click",function()
 {
@@ -39,8 +43,8 @@ function hardButton()
 	colorDisplay.textContent = pickedColor; 
 	for (var i = 0; i <sqeares.length; i++) 
 	{		
-			sqeares[i].style.backgroundColor = colors[i];
-			sqeares[i].style.display= "block";
+		sqeares[i].style.backgroundColor = colors[i];
+		sqeares[i].style.display= "block";
 	}
 	h1.style.backgroundColor = "steelblue";
 	messageDisplay.textContent = "";
@@ -71,28 +75,26 @@ function easyButton()
 }
 
 
-for(var i = 0; i < sqeares.length;i++){
-	//add initializer colorsto find
-	sqeares[i].style.backgroundColor = colors[i];
-
+for(var i = 0; i <numberOfSquares;i++){
 	//add click listeners to the squer
-sqeares[i].addEventListener("click",function()
-{
-	//var for the click color
-	var clickColor =this.style.backgroundColor;
-
-	//loop for the choose the right color
-	if(clickColor === pickedColor)
+	sqeares[i].addEventListener("click",function()
 	{
-		h1.style.backgroundColor=clickColor;
-		messageDisplay.textContent ="Yes You did it";
-	    changeColor(clickColor);
-	}
-	else
+		//var for the click color
+		var clickColor =this.style.backgroundColor;
+
+		//loop for the choose the right color
+		if(clickColor === pickedColor)
+		{
+			h1.style.backgroundColor=clickColor;
+			messageDisplay.textContent ="Yes You did it";
+		    changeColor(clickColor);
+	    	reset.textContent = "Play again?";
+		}
+		else
 		{
 			this.style.backgroundColor = "#232323";
 			messageDisplay.textContent ="Sorry, Try again!!";
-			reset.textContent = "Play Again??";
+			reset.textContent = "New Color";			
 		}
 	});
 }
