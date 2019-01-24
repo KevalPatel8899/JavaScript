@@ -4,7 +4,7 @@ var sqeares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var bodyColor= document.querySelector("body");
 var messageDisplay = document.querySelector("#select");
-var h1BackgroundColor = document.querySelector("h1");
+
 
 colorDisplay.textContent = pickedColor; 
 
@@ -17,7 +17,7 @@ sqeares[i].addEventListener("click",function(){
 //var for the click color
 var clickColor =this.style.backgroundColor;
 
-
+console.log(clickColor,pickedColor);
 //loop for the choose the right color
 if(clickColor === pickedColor)
 {
@@ -33,14 +33,15 @@ else
 
 }
 
-function changeColor(color){
+function changeColor(color)
+{
 	for(var i=0; i<sqeares.length;i++){
-
 		sqeares[i].style.backgroundColor = color;
 	}
 }
 
-function pickColor(){
+function pickColor()
+{
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
 }
@@ -66,5 +67,6 @@ function randomColors()
 	var g =Math.floor(Math.random() * 256);
 	//pick a blue form 0 to 255
 	var b =Math.floor(Math.random() * 256);
-	return"rgb("+ r +"," + g + "," + b +")";
+	return"rgb("+r+", " +g+", "+b+")";
 }
+
