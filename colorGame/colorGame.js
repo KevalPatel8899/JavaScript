@@ -13,6 +13,7 @@ var modeButtons = document.querySelectorAll(".mode");
 
 
 
+
 easy.addEventListener("click",function()
 {
 	easyButton();
